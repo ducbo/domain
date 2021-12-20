@@ -1,0 +1,66 @@
+appname: "cyberman"
+layout: "main"
+charset: "UTF-8"
+auto_page: 1
+
+template: "template_toolkit"
+engines:
+  template:
+    template_toolkit:
+      start_tag: '<%'
+      end_tag:   '%>'
+
+plugins:
+  Database:
+    driver: 'SQLite'
+    dbname: 'db.sqlite'
+
+stylesheets:
+  default: "light"
+
+tld: 'go.tn'
+
+reserved_domains:
+  # use lowercase please
+  - "opennic"
+  - "dns"
+  - "cybnic"
+  - "register"
+  - "nic"
+  - "reg"
+  - "cyberman"
+  - "moderntld"
+  - "o"
+  - "opennicservers"
+  - "blogs"
+  - "web"
+  - "example"
+  - "test"
+  - "tld"
+  - "modern"
+  - "search"
+  - "mail"
+  - "ns1"
+  - "ns2"
+  - "ns3"
+  - "ns4"
+
+zonewriter:
+  # Values used for SOA
+  ns: 'ns1.digitalocean.com.'
+  responsible: 'dns.go.tn.'
+  file: '/opt/go.tn.txt'
+  include:
+    # Optionally, you can have the zonewriter include another file
+    # in the zone, which allows you to define some records manually
+    enabled: 0
+    file: 'human_o'
+  # if true, written zones will be checked with nsd-checkzone, just in case
+  # requires nsd to be installed and nsd-checkzone to be in path
+  validate: 0
+
+mail:
+  enabled: 1
+  # Currently, the local MTA is used and there's no config option
+  from: 'admin@go.tn'
+  baseurl: 'https://pdns.win'
