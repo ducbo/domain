@@ -40,9 +40,9 @@ END
 $zone .= "@  1D  IN  SOA $conf->{ns} $conf->{responsible} (\n" . time . "\n";
 $zone .= <<'END';
 1800 ; refresh
-1800 ; retry
-1800 ; expire
-1800 ; nxdomain ttl
+15 ; retry
+604800 ; expire
+1h ; nxdomain ttl
 )
 @	IN	NS	ns1.anycastdns.cz.
 @	IN	NS	ns2.anycastdns.cz.
